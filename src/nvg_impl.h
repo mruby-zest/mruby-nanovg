@@ -1,7 +1,9 @@
 #ifndef MRUBY_NVG_IMPL_H
 #define MRUBY_NVG_IMPL_H
 
-#include <GL/glew.h>
+#define GL_GLEXT_PROTOTYPES
+#include <GL/gl.h>
+#include <GL/glext.h>
 #include <nanovg.h>
 
 #ifdef __cplusplus
