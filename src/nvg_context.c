@@ -227,6 +227,7 @@ context_initialize(mrb_state *mrb, mrb_value self)
   mrb_int flags;
   NVGcontext *context;
   mrb_get_args(mrb, "i", &flags);
+  ogl_LoadFunctions();
   context = mrb_nvgCreateGL(flags);
   if (!context) {
     mrb_raise(mrb, E_NVG_ERROR, "Could not create Context.");

@@ -1,9 +1,9 @@
 #ifndef MRUBY_NVG_IMPL_H
 #define MRUBY_NVG_IMPL_H
 
-#define GL_GLEXT_PROTOTYPES
-#include <GL/gl.h>
-#include <GL/glext.h>
+#include "gl_core.3.2.h"
+#define  GL_LUMINANCE 0x1909
+#define  GL_GENERATE_MIPMAP 0x8191
 #include <nanovg.h>
 
 #ifdef __cplusplus
