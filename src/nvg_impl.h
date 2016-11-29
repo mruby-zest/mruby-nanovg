@@ -13,6 +13,7 @@ extern "C"
 
 /* If none of the defines are set, assume GLES2 */
 #ifndef MRUBY_NANOVG_GL2
+#error "Tell the maintainer of mruby-zest he's an idiot"
 #  ifndef MRUBY_NANOVG_GL3
 #    ifndef MRUBY_NANOVG_GLES2
 #      ifndef MRUBY_NANOVG_GLES3
