@@ -8,7 +8,7 @@ Mruby Bindings for [nanovg](https://github.com/memononen/nanovg).
 MRuby::Build.new do |conf|
   #toolchain :gcc
   toolchain :clang # I used clang for testing, you can use gcc
-  
+
   conf.gembox 'default'
   conf.gem github: 'IceDragon200/mruby-glew'
   conf.gem github: 'IceDragon200/mruby-glfw3'
@@ -32,6 +32,8 @@ end
 ## Requirements:
 In order to build and use the gem, the following gems are required
 
+* [mruby-idextmacros](https://github.com/IceDragon200/mruby-idextmacros)
+  Include this in your build_config include path, it has helper macros used by the gem for creating attribute fields and generic methods
 * [mruby-glew](http://github.com/IceDragon200/mruby-glew)
 * [mruby-gles](http://github.com/take-cheeze/mruby-gles)
 
@@ -51,10 +53,19 @@ If you wish to try the examples, you'll need [mruby-glfw3](https://github.com/Ic
 rake docs
 ```
 
+## Gotchas
+```ruby
+# text_break_lines is a tricky function to wrap, instead I've opted to handle the row buffering intenrally and yield the params back to the user
+context.text_break_lines text, width do |row_string, row_width, min_x, max_x|
+  # do stuff with the row_string
+end
+
+context.text_glyph_positions(x, y, text) #=> [[x, min_x, max_x]...]
+```
 ## TODO:
 - [ ] Bind
-  - [ ] Nanovg::Context.text_glyph_positions
-  - [ ] Nanovg::Context.text_break_lines
+  - [x] Nanovg::Context.text_glyph_positions
+  - [x] Nanovg::Context.text_break_lines
   - [x] everything else
 - [ ] Tests
   - [x] Nanovg
