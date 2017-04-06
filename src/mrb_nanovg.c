@@ -2,7 +2,6 @@
 #include <mruby/class.h>
 #include <mruby/error.h>
 
-#include <GL/gl.h>
 
 #include "mrb/nvg/nvg.h"
 #include "nvg_color.h"
