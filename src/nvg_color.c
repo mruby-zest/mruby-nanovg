@@ -4,7 +4,6 @@
 #include <mruby/data.h>
 #include <mruby/numeric.h>
 #include "nvg_color.h"
-#include "mrb_helper_macros.h"
 
 void
 mrb_nvg_color_free(mrb_state *mrb, void *ptr)
