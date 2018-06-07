@@ -671,4 +671,8 @@ mrb_nvg_context_init(mrb_state *mrb, struct RClass *nvg_module)
   mrb_define_method(mrb, nvg_context_class, "text_glyph_positions",context_text_glyph_positions,MRB_ARGS_REQ(6));
   mrb_define_method(mrb, nvg_context_class, "text_metrics",        context_text_metrics,        MRB_ARGS_NONE());
   mrb_define_method(mrb, nvg_context_class, "text_break_lines",    context_text_break_lines,    MRB_ARGS_REQ(5));
+  mrb_value nvg_screenshot(mrb_state *mrb, mrb_value self);
+  mrb_define_method(mrb, nvg_context_class, "screenshot", nvg_screenshot,
+          MRB_ARGS_REQ(5));
+
 }
