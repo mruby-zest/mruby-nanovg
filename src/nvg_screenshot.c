@@ -32,10 +32,17 @@ nvg_screenshot(mrb_state *mrb, mrb_value self)
 
     uint8_t *image = (uint8_t*)calloc(w*h,4);
 
-    glReadPixels(0, 0, w, h,
+    //uint32_t sum = 0;
+    glReadPixels(x, y, w, h,
             GL_RGBA,
             GL_UNSIGNED_BYTE,
             image);
+    int ret = glGetError();
+    if(ret != 0)
+        printf("OPENGL ERROR %d\n", ret);
+    //for(int i=0; i<4*w*h; ++i)
+    //    sum += image[i];
+    //printf("sum = %d\n", sum);
 
     flipHorizontal(image, w, h, w*4);
 
